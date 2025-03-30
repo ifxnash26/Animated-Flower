@@ -37,6 +37,7 @@
         color: white;
         z-index: 999;
         font-family: 'Poppins', sans-serif;
+        animation: title-animation 2s ease-in-out infinite alternate;
       }
       
       .reloadBtn {
@@ -1262,13 +1263,26 @@
       .not-loaded * {
         animation-play-state: paused !important;
       }
+
+      @keyframes title-animation {
+        0% {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        50% {
+          transform: translateY(10px);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
 
   <body class="not-loaded">
     <h1 class="title">Selamat Hari Raya Mel ❤️</h1>
     <button class="reloadBtn" onclick="bloomFlower()">Bloom Flower</button>
-    <button onclick="playMusic()">Play Music</button>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -1581,7 +1595,7 @@
     </div>
 
     <audio id="background-music" autoplay loop>
-      <source src="C:\yt-dlp-Anuar Zain & Ellina - Suasana Hari Raya (Lyrics) [m0ANhHuXIGE]" type="audio/mpeg">
+      <source src="audio/Anuar Zain & Ellina - Suasana Hari Raya.webm" type="audio/webm">
       Your browser does not support the audio element.
     </audio>
 
@@ -1596,7 +1610,7 @@
           }
       }
 
-      function playMusic() {
+function playMusic() {
         const audio = document.getElementById('background-music');
         audio.play();
       }
