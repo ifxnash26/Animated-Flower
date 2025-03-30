@@ -1602,13 +1602,22 @@
     <script>
 
       function bloomFlower() {
-          if (document.body.classList.contains('not-loaded')) {
-              document.body.classList.remove("not-loaded");
-              document.querySelector('.reloadBtn').textContent = 'Reload Page';
-          } else {
-            location.reload();
-          }
-      }
+    const audio = document.getElementById('background-music');
+    const body = document.body;
+
+    if (body.classList.contains('not-loaded')) {
+      // Start the animation
+      body.classList.remove('not-loaded');
+      document.querySelector('.reloadBtn').textContent = 'Reload Page';
+
+      // Play the audio
+      audio.currentTime = 0; // Start audio from the beginning
+      audio.play();
+    } else {
+      // Reload the page
+      location.reload();
+    }
+  }
 
 function playMusic() {
         const audio = document.getElementById('background-music');
